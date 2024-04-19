@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Tasks</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .title-container, .task-list-container {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .task-list {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-container">
+            <h1>Completed Tasks</h1>
+        </div>
+        <div class="task-list-container">
+            <ul class="task-list">
+                {% for task in completed_tasks %}
+                    <li>{{ task.title }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <form action="{% url 'task_list' %}" class="back-button">
+            <button type="submit" class="btn btn-primary">Back</button>
+        </form>
+    </div>
+</body>
+</html>

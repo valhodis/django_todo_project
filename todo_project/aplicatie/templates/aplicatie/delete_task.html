@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Task</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .confirm-button {
+            padding: 10px 20px;
+            background-color: #FF5733;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .confirm-button:hover {
+            background-color: #FF8C66;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Task</h1>
+        <p>Are you sure you want to delete "{{ task.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button class="confirm-button" type="submit">Yes, Delete Task</button>
+        </form>
+    </div>
+</body>
+</html>
